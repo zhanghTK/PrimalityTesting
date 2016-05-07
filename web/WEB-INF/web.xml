@@ -6,13 +6,22 @@
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
     <servlet>
         <servlet-name>certainly</servlet-name>
-        <servlet-class>tk.zhangh.action.CertainlyAlgorithmAction</servlet-class>
+        <servlet-class>tk.zhangh.action.CertainlyAction</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>certainly</servlet-name>
         <url-pattern>/certainly</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>MillerRabin</servlet-name>
+        <servlet-class>tk.zhangh.action.MillerRabinAction</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MillerRabin</servlet-name>
+        <url-pattern>/test</url-pattern>
+    </servlet-mapping>
+    
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>

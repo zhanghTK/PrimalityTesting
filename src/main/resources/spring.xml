@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="certainlyService" class="tk.zhangh.service.CertainlyService"/>
+    <bean id="millerRabinService" class="tk.zhangh.service.MillerRabinService"/>
+
+    <bean id="certainlyAction" class="tk.zhangh.action.CertainlyAction">
+        <property name="algorithmService" ref="certainlyService"/>
+    </bean>
+    <bean id="millerRabinAction" class="tk.zhangh.action.MillerRabinAction">
+        <property name="algorithmService" ref="millerRabinService"/>
+    </bean>
+</beans>

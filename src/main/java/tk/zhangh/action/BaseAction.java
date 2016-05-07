@@ -15,6 +15,10 @@ import java.io.IOException;
 public abstract class BaseAction extends HttpServlet{
     private AlgorithmService algorithmService;
 
+    public void setAlgorithmService(AlgorithmService algorithmService) {
+        this.algorithmService = algorithmService;
+    }
+
     public AlgorithmService getAlgorithmService() {
         return algorithmService;
     }
@@ -28,10 +32,6 @@ public abstract class BaseAction extends HttpServlet{
         }else {
             req.getRequestDispatcher("no.jsp").forward(req,resp);
         }
-    }
-
-    public void setAlgorithmService(AlgorithmService algorithmService) {
-        this.algorithmService = algorithmService;
     }
 
     abstract boolean isPrime(String numStr);

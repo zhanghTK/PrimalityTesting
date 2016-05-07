@@ -11,7 +11,13 @@
     <title>素性检测</title>
   </head>
   <body>
+    <h1>确定性</h1>
     <form action="/primality/certainly" method="get">
+      <input type="text" name="num" value="请输入一个数字" style="width: 60%">
+      <input type="submit" value="判断"/>
+    </form>
+    <h1>Miller-Rabin</h1>
+    <form action="/primality/test" method="get">
       <input type="text" name="num" value="请输入一个数字" style="width: 60%">
       <input type="submit" value="判断"/>
     </form>

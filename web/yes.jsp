@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-    Yes
+    素数
 </body>
 </html>
