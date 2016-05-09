@@ -28,9 +28,11 @@ public abstract class BaseAction extends HttpServlet{
         String numStr = req.getParameter("num");
         boolean result = isPrime(numStr);
         if (result){
-            req.getRequestDispatcher("yes.jsp").forward(req,resp);
+//            req.getRequestDispatcher("yes.jsp").forward(req,resp);
+            resp.getWriter().println("yes");
         }else {
-            req.getRequestDispatcher("no.jsp").forward(req,resp);
+//            req.getRequestDispatcher("no.jsp").forward(req,resp);
+            resp.getWriter().println("no");
         }
     }
 
