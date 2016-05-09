@@ -15,7 +15,7 @@ public class MillerRabinService implements AlgorithmService{
         return result;
     }
 
-    public static BigInteger quickMod(BigInteger a, BigInteger b, BigInteger m){
+    public BigInteger quickMod(BigInteger a, BigInteger b, BigInteger m){
         BigInteger ans = BigInteger.ONE;
         a = a.mod(m);
         while(!(b.equals(BigInteger.ZERO))){
@@ -29,7 +29,7 @@ public class MillerRabinService implements AlgorithmService{
         return ans;
     }
 
-    public static boolean millerRabinTest(BigInteger n){
+    public boolean millerRabinTest(BigInteger n){
         if(n.equals(BigInteger.valueOf(2))) return true;
         if(n.equals(BigInteger.ONE)) return false;
         if((n.mod(BigInteger.valueOf(2))).equals(BigInteger.ZERO)) return false;

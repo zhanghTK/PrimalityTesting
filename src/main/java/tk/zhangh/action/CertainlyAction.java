@@ -1,6 +1,7 @@
 package tk.zhangh.action;
 
 import tk.zhangh.service.AlgorithmService;
+import tk.zhangh.service.CertainlyService;
 
 /**
  * 确定性算法action
@@ -9,9 +10,9 @@ import tk.zhangh.service.AlgorithmService;
 public class CertainlyAction extends BaseAction{
     @Override
     boolean isPrime(String numStr) {
-//        if (getAlgorithmService() == null){
-//            setAlgorithmService(new CertainlyService());
-//        }
+        if (getAlgorithmService() == null){
+            setAlgorithmService(new CertainlyService());
+        }
         AlgorithmService service = getAlgorithmService();
         return service.isPrime(numStr);
     }
