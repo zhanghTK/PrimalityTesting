@@ -6,13 +6,19 @@ import java.util.Random;
 /**
  * Created by ZhangHao on 16/5/7.
  */
-public class MillerRabinService implements AlgorithmService{
+public class MillerRabinService extends BaseService{
     public static final int Times = 10;
 
-    public boolean isPrime(String numberStr) {
-        BigInteger num = new BigInteger(numberStr);
-        boolean result = millerRabinTest(num);
-        return result;
+//    public boolean isPrime(String numberStr) {
+//        BigInteger num = new BigInteger(numberStr);
+//        boolean result = millerRabinTest(num);
+//        return result;
+//    }
+
+
+    @Override
+    public boolean oddIsPrime(BigInteger num) {
+        return millerRabinTest(num);
     }
 
     public BigInteger quickMod(BigInteger a, BigInteger b, BigInteger m){
@@ -58,5 +64,17 @@ public class MillerRabinService implements AlgorithmService{
             if(!(y.equals(BigInteger.ONE))) return false;
         }
         return true;
+    }
+
+    public static void main(String[] args) {
+        int count = 0;
+        for (int i = 3; i < 10000; i++) {
+            boolean r = new MillerRabinService().isPrime(Integer.toString(i));
+            if (r){
+                count++;
+            }
+            System.out.println(i + " is " + r);
+        }
+        System.out.println(count);
     }
 }

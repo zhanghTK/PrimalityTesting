@@ -1,29 +1,21 @@
 package tk.zhangh.service;
 
+import tk.zhangh.util.BigIntegerUtils;
+
 import java.math.BigInteger;
 
 /**
  * 确定性算法service
  * Created by ZhangHao on 16/4/30.
  */
-public class CertainlyService implements AlgorithmService{
-    public boolean isPrime(String numberStr) {
-//        long num = Long.parseLong(numberStr);
-//        int i;
-//        for (i = 3;i <= Math.sqrt(num); i++){
-//            if (num % i == 0){
-//                break;
-//            }
-//        }
-//        if (i <= Math.sqrt(num)){
-//            return false;
-//        }else {
-//            return true;
-//        }
-        BigInteger num = new BigInteger(numberStr);
-        BigInteger index = new BigInteger("3");
-        for (index = new BigInteger("3"); index.compareTo(num)==-1;index=index.add(new BigInteger("1"))){
-            if (num.mod(index).equals(new BigInteger("0"))){
+public class CertainlyService extends BaseService{
+    public boolean oddIsPrime(BigInteger num) {
+        if(isEven(num) && !num.equals(BigIntegerUtils.TWO)){
+            return false;
+        }
+        BigInteger index;
+        for (index = BigIntegerUtils.TWO; index.compareTo(num)==-1;index=index.add(BigInteger.ONE)){
+            if (num.mod(index).equals(BigInteger.ZERO)){
                 break;
             }
         }
@@ -32,5 +24,17 @@ public class CertainlyService implements AlgorithmService{
         }else {
             return true;
         }
+    }
+
+    public static void main(String[] args) {
+        int count = 0;
+        for (int i = 3; i < 10000; i++) {
+            boolean r = new CertainlyService().isPrime(Integer.toString(i));
+            if (r){
+                count++;
+            }
+            System.out.println(i + " is " + r);
+        }
+        System.out.println(count);
     }
 }
