@@ -69,6 +69,14 @@
                 $("button[id='miller-rabin']").attr("data-content", data);
             }
         });
+
+        $.ajax({
+            type: "GET",
+            url: "/primality/solovayStrassen?num="+num,
+            success: function (data) {
+                $("button[id='solovayStrassen']").attr("data-content", data);
+            }
+        });
     }
 </script>
 
@@ -87,7 +95,12 @@
                     data-container="body" data-toggle="popover" data-placement="right"
                     data-content="" onclick="javascript:test();">
                 MillerRabin检测算法
-            </button>
+            </button><br/><br/>
+            <button id="solovayStrassen" type="button" class="btn btn-primary" title="检测结果:"
+                    data-container="body" data-toggle="popover" data-placement="right"
+                    data-content="" onclick="javascript:test();">
+                MillerRabin检测算法
+            </button><br/><br/>
         </div>
         <script>$(function () {
             $("input[name='num']").on('input', function(){

@@ -1,4 +1,4 @@
-package tk.zhangh.service;
+package tk.zhangh.service.imp;
 
 import tk.zhangh.util.BigIntegerUtils;
 
@@ -8,7 +8,7 @@ import java.math.BigInteger;
  * 确定性算法service
  * Created by ZhangHao on 16/4/30.
  */
-public class CertainlyService extends BaseService{
+public class CertainlyService extends BaseService {
     public boolean oddIsPrime(BigInteger num) {
         if(isEven(num) && !num.equals(BigIntegerUtils.TWO)){
             return false;
@@ -27,6 +27,7 @@ public class CertainlyService extends BaseService{
     }
 
     public static void main(String[] args) {
+        long start = System.currentTimeMillis();
         int count = 0;
         for (int i = 3; i < 10000; i++) {
             boolean r = new CertainlyService().isPrime(Integer.toString(i));
@@ -36,5 +37,6 @@ public class CertainlyService extends BaseService{
             System.out.println(i + " is " + r);
         }
         System.out.println(count);
+        System.out.println(System.currentTimeMillis()-start);
     }
 }

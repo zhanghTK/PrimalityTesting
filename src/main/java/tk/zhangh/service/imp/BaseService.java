@@ -1,6 +1,6 @@
-package tk.zhangh.service;
+package tk.zhangh.service.imp;
 
-import org.junit.Test;
+import tk.zhangh.service.AlgorithmService;
 import tk.zhangh.util.BigIntegerUtils;
 
 import java.math.BigInteger;

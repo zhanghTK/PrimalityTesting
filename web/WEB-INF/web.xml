@@ -20,8 +20,17 @@
         <servlet-name>MillerRabin</servlet-name>
         <url-pattern>/miller-rabin</url-pattern>
     </servlet-mapping>
-    
+
+    <servlet>
+        <servlet-name>SolovayStrassen</servlet-name>
+        <servlet-class>tk.zhangh.action.SolovayStrassenAction</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SolovayStrassen</servlet-name>
+        <url-pattern>/solovayStrassen</url-pattern>
+    </servlet-mapping>
+
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>index.html</welcome-file>
     </welcome-file-list>
 </web-app>

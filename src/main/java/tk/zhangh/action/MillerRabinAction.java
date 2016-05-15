@@ -1,7 +1,7 @@
 package tk.zhangh.action;
 
 import tk.zhangh.service.AlgorithmService;
-import tk.zhangh.service.MillerRabinService;
+import tk.zhangh.service.imp.MillerRabinService;
 
 /**
  * Created by ZhangHao on 16/5/7.

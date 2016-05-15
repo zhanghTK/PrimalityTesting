@@ -1,7 +1,7 @@
 package tk.zhangh.action;
 
 import tk.zhangh.service.AlgorithmService;
-import tk.zhangh.service.CertainlyService;
+import tk.zhangh.service.imp.CertainlyService;
 
 /**
  * 确定性算法action

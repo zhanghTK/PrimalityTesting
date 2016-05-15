@@ -1,4 +1,4 @@
-package tk.zhangh.service;
+package tk.zhangh.service.imp;
 
 import java.math.BigInteger;
 import java.util.Random;
@@ -6,7 +6,7 @@ import java.util.Random;
 /**
  * Created by ZhangHao on 16/5/7.
  */
-public class MillerRabinService extends BaseService{
+public class MillerRabinService extends BaseService {
     public static final int Times = 10;
 
 //    public boolean isPrime(String numberStr) {
@@ -67,6 +67,7 @@ public class MillerRabinService extends BaseService{
     }
 
     public static void main(String[] args) {
+        long start = System.currentTimeMillis();
         int count = 0;
         for (int i = 3; i < 10000; i++) {
             boolean r = new MillerRabinService().isPrime(Integer.toString(i));
@@ -76,5 +77,6 @@ public class MillerRabinService extends BaseService{
             System.out.println(i + " is " + r);
         }
         System.out.println(count);
+        System.out.println(System.currentTimeMillis()-start);
     }
 }
