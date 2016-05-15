@@ -1,5 +1,12 @@
-<!DOCTYPE html>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <html lang="zh-CN">
+<%
+    String logined = (String) request.getAttribute("logined");
+    System.out.println(!"true".equals(logined));
+    if (!"true".equals(logined)){
+        request.getRequestDispatcher("login.jsp").forward(request, response);
+    }
+%>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,7 +32,7 @@
     <script type="text/javascript" src="resources/jquery.js"></script>
 </head>
 
-<body>
+<body background="resources/xiyou.jpg">
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -47,6 +54,44 @@
     </div>
 </nav>
 
+<div class="container">
+
+    <div class="starter-template">
+        <h1>素性检测</h1>
+        <div style="padding: 100px 100px 10px;">
+            <input name="num" type="text" class="form-control" placeholder="请输入待检测数字..."><br/>
+            <button id="certain" type="button" class="btn btn-primary" title="检测结果:"
+                    data-container="body" data-toggle="popover" data-placement="right"
+                    data-content="" onclick="javascript:test();">
+                确认性检测算法
+            </button><br/><br/>
+            <button id="miller-rabin" type="button" class="btn btn-primary" title="检测结果:"
+                    data-container="body" data-toggle="popover" data-placement="right"
+                    data-content="" onclick="javascript:test();">
+                MillerRabin检测算法
+            </button><br/><br/>
+            <button id="solovayStrassen" type="button" class="btn btn-primary" title="检测结果:"
+                    data-container="body" data-toggle="popover" data-placement="right"
+                    data-content="" onclick="javascript:test();">
+                MillerRabin检测算法
+            </button><br/><br/>
+        </div>
+    </div>
+
+</div><!-- /.container -->
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script>$(function () {
+    $("input[name='num']").on('input', function(){
+        test();
+    });
+
+    $("[data-toggle='popover']").popover();
+});
+</script>
 <script>
     function test(){
         console.log("hello");
@@ -79,46 +124,5 @@
         });
     }
 </script>
-
-<div class="container">
-
-    <div class="starter-template">
-        <h1>素性检测</h1>
-        <div style="padding: 100px 100px 10px;">
-            <input name="num" type="text" class="form-control" placeholder="请输入待检测数字..."><br/>
-            <button id="certain" type="button" class="btn btn-primary" title="检测结果:"
-                    data-container="body" data-toggle="popover" data-placement="right"
-                    data-content="" onclick="javascript:test();">
-                确认性检测算法
-            </button><br/><br/>
-            <button id="miller-rabin" type="button" class="btn btn-primary" title="检测结果:"
-                    data-container="body" data-toggle="popover" data-placement="right"
-                    data-content="" onclick="javascript:test();">
-                MillerRabin检测算法
-            </button><br/><br/>
-            <button id="solovayStrassen" type="button" class="btn btn-primary" title="检测结果:"
-                    data-container="body" data-toggle="popover" data-placement="right"
-                    data-content="" onclick="javascript:test();">
-                MillerRabin检测算法
-            </button><br/><br/>
-        </div>
-        <script>$(function () {
-            $("input[name='num']").on('input', function(){
-                test();
-            });
-
-            $("[data-toggle='popover']").popover();
-        });
-        </script>
-    </div>
-
-</div><!-- /.container -->
-
-
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </body>
 </html>
